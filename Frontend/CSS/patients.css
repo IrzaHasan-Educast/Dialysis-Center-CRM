@@ -1,0 +1,33 @@
+.slide{
+    position: relative;
+    top: 68px;
+    height:auto;
+}
+
+.slider-btn{
+    padding: 14px 20px !important;
+    font-weight: 600 !important;
+
+}
+
+.slider-btn-patient-clr{
+    color: white !important;
+    background-color: rgb(74 144 164 / var(--tw-bg-opacity, 1)) !important;
+}
+
+/* 🔹 Button hover animations */
+.btn {
+  transition: all 0.3s ease;
+}
+
+.slider-btn-patient-clr:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(74, 84, 93, 0.4);
+  background-color: #a7b1bc;
+}
+
+.btn-outline-dark:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
