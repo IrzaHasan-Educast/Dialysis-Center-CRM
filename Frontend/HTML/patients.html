@@ -7,17 +7,16 @@
     <link rel="stylesheet" href="../CSS/nav.css">
     <link rel="stylesheet" href="../CSS/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <title>Dialysis-Center</title>
 </head>
 <body>
     <div class="navbar fixed-top navbar-expand-lg bg-white border-bottom">
         <div class="container">
             <div class="logo">
-                <span class="navbar-brand">DIalysisCenter Pro</span>
+                <span class="navbar-brand logo-text">
+                <i class="fa-solid fa-stethoscope" style="color: #74b9b1;"></i>
+                <strong>Dialysis<span style="color: #74b9b1;">Center</span></strong> Pro</span>
             </div>
             <div class="pages">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -60,8 +59,8 @@
     </div>
     
 
-    <div class="container-fluid p-4 slide border-bottom">
-        <div class="row mx-4 d-flex justify-content-around">
+    <div class="container-fluid mt-5 p-5 slide border-bottom">
+        <div class="row mx-4 p-2 d-flex justify-content-around">
             <div class="col-6 mx-4">
                 <h2><Strong>Patient Management</Strong></h2>
                 <p>Comprehensive patient profiles, intake, and compliance tracking</p>
@@ -74,21 +73,73 @@
                 </button>
                 <button class="btn slider-btn ms-2 btn-outline-dark">
                     <i class="fa-solid fa-download" style="color: #000000;"></i>
-                    Export Data</button>
+                    Export Data
+                </button>
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="height: 100vh;">
 
+
+    <div class="container-fluid patient-details-section p-5 bg-light">
+        <div class="container p-3">
+            <h3 class="fw-bold mb-4">Patient Directory</h3>
+
+            <div class="table-responsive shadow-sm rounded-3 bg-white p-3">
+            <table class="table table-hover align-middle">
+                <thead class="table-row">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Country</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mark.otto@example.com</td>
+                    <td>32</td>
+                    <td>123 Main St</td>
+                    <td>Pakistan</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>jacob.t@example.com</td>
+                    <td>28</td>
+                    <td>45 Model Town</td>
+                    <td>Pakistan</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>Bird</td>
+                    <td>larry.b@example.com</td>
+                    <td>41</td>
+                    <td>Street 12</td>
+                    <td>USA</td>
+                </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
     </div>
-   
+
+
+   <!-- Footer -->
     <div class="footer text-center p-3 border-top">
         <p>© 2025 DialysisCenter Pro. Professional healthcare CRM system for dialysis centers.</p>
     </div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-  <div class="modal-dialog modal-lg">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h3><strong>New Patient Intake</strong></h3>
