@@ -97,34 +97,8 @@
                     <th scope="col">Country</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mark.otto@example.com</td>
-                    <td>32</td>
-                    <td>123 Main St</td>
-                    <td>Pakistan</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>jacob.t@example.com</td>
-                    <td>28</td>
-                    <td>45 Model Town</td>
-                    <td>Pakistan</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>Bird</td>
-                    <td>larry.b@example.com</td>
-                    <td>41</td>
-                    <td>Street 12</td>
-                    <td>USA</td>
-                </tr>
+                <tbody >
+                
                 </tbody>
             </table>
             </div>
@@ -146,68 +120,72 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form class="row g-3">
-            <div class="col-md-6">
-                <label for="firstName" class="form-label">First Name</label>
-                <input type="text" class="form-control" id="firstName">
-            </div>
-            <div class="col-md-6">
-                <label for="lastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="lastName">
-            </div>
-            <div class="col-md-6">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4">
-            </div>
-            <div class="col-md-6">
-                <label for="age" class="form-label">Age</label>
-                <input type="number" class="form-control" id="age">
-            </div>
-            <div class="col-12">
-                <label for="inputAddress" class="form-label">Address</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-            </div>
-            <div class="col-md-6">
-                <label for="inputCountry" class="form-label">Country</label>
-                <select id="inputCountry" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
-                </select>            
-            </div>
-            <div class="col-md-4">
-                <label for="inputCity" class="form-label">City</label>
-                <select id="inputCity" class="form-select">
-                <option selected>Choose...</option>
-                <option>...</option>
-                </select>
-            </div>
-            <div class="col-md-2">
-                <label for="inputZip" class="form-label">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-            </div>
-            <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-            
+        <form id="add-patient" class="row g-3 add-patient">
+          <div class="col-md-6">
+            <label for="firstName" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstName">
+          </div>
+          <div class="col-md-6">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName">
+          </div>
+          <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail">
+          </div>
+          <div class="col-md-6">
+            <label for="age" class="form-label">Age</label>
+            <input type="number" class="form-control" id="age">
+          </div>
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          </div>
+          <div class="col-md-6">
+            <label for="inputCountry" class="form-label">Country</label>
+            <select id="inputCountry" class="form-select">
+              <option selected>Choose...</option>
+              <option>Pakistan</option>
+              <option>USA</option>
+              <option>UK</option>
+            </select>            
+          </div>
+          <div class="col-md-4">
+            <label for="inputCity" class="form-label">City</label>
+            <select id="inputCity" class="form-select">
+              <option selected>Choose...</option>
+              <option>Lahore</option>
+              <option>Karachi</option>
+              <option>Islamabad</option>
+            </select>
+          </div>
+          <div class="col-md-2">
+            <label for="inputZip" class="form-label">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+          </div>
+          <div class="col-12 d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </form>
-      </div>
-      <div class="modal-footer">
+
+        <!-- Error message container -->
+        <div class="container" id="error-msg"></div>
       </div>
     </div>
   </div>
 </div>
+
 <!-- Modal Ended -->
 
 
 <!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" 
-integrity="sha384-IQsoLXl5PILFhosVNubq6Bf0B8bJp3pZ1p6YbKZ6o1vXbHx0sC6sFZ1QZxF2VZBs" 
-crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" 
 integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" 
 crossorigin="anonymous"></script>
 
+<script src="../JS/patient-form.js"></script>
 </body>
 </html>
