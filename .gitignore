@@ -1,0 +1,23 @@
+# Ignore Visual Studio temporary files
+.vs/
+*.user
+*.suo
+
+# Ignore build output folders
+bin/
+obj/
+
+# Ignore logs
+*.log
+
+# Ignore environment and config files
+.env
+appsettings.Development.json
+
+# Ignore launch settings (local machine only)
+Properties/launchSettings.json
+
+# Ignore backups or cache
+*.db-shm
+*.db-wal
+*.db-journal

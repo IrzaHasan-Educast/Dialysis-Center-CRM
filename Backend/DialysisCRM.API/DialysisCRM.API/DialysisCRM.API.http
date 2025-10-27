@@ -1,0 +1,6 @@
+@DialysisCRM.API_HostAddress = http://localhost:5277
+
+GET {{DialysisCRM.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DialysisCRM.API", "DialysisCRM.API\DialysisCRM.API.csproj", "{DB1FF4E7-2D46-4FCE-9C72-D64A3AFE975E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1FF4E7-2D46-4FCE-9C72-D64A3AFE975E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB1FF4E7-2D46-4FCE-9C72-D64A3AFE975E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB1FF4E7-2D46-4FCE-9C72-D64A3AFE975E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB1FF4E7-2D46-4FCE-9C72-D64A3AFE975E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27B39EFA-1E53-4FF0-8EDB-C7E056D0F748}
+	EndGlobalSection
+EndGlobal
