@@ -13,7 +13,10 @@
         // Navigation properties
         public PatientMedicalInfo MedicalInfo { get; set; }
         public PatientReferral Referral { get; set; }
-        
+        public CMS107Eligibility CMS107 { get; set; }
+        public Insurance Insurance { get; set; }
+        public ICollection<PatientDocument> Documents { get; set; }
+        //public ICollection<ScheduleSlot> ScheduleSlots { get; set; }
 
     }
 }
