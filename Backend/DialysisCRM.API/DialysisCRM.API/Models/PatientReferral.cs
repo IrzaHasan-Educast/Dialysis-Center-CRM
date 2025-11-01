@@ -1,4 +1,6 @@
-﻿namespace DialysisCRM.API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DialysisCRM.API.Models
 {
     public class PatientReferral
     {
@@ -9,6 +11,7 @@
         public string Urgency { get; set; }
         public DateTime ReferredOn { get; set; }
 
-        public Patient Patient { get; set; }
+        [JsonIgnore]
+        public Patient? Patient { get; set; }
     }
 }

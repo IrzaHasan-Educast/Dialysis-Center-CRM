@@ -1,4 +1,6 @@
-﻿namespace DialysisCRM.API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DialysisCRM.API.Models
 {
     public class Insurance
     {
@@ -8,6 +10,8 @@
         public string PolicyNumber { get; set; }
         public string CoverageStatus { get; set; }
 
-        public Patient Patient { get; set; }
+
+        [JsonIgnore] 
+        public Patient? Patient { get; set; }
     }
 }

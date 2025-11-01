@@ -1,4 +1,6 @@
-﻿namespace DialysisCRM.API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace DialysisCRM.API.Models
 {
     public class PatientDocument
     {
@@ -8,6 +10,7 @@
         public string FilePath { get; set; }
         public DateTime UploadedAt { get; set; }
 
-        public Patient Patient { get; set; }
+        [JsonIgnore]
+        public Patient? Patient { get; set; }
     }
 }
