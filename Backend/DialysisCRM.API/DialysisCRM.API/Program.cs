@@ -1,4 +1,6 @@
 ﻿using DialysisCRM.API.Data;
+using DialysisCRM.API.Interfaces;
+using DialysisCRM.API.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -28,6 +30,8 @@ builder.Services.AddCors(options =>
             .AllowAnyMethod();
     });
 });
+
+builder.Services.AddScoped<IPatientService, PatientService>();
 
 var app = builder.Build();
 
