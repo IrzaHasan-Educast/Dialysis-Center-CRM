@@ -12,10 +12,10 @@ namespace DialysisCRM.API.Data
 
         public DbSet<Patient> Patients { get; set; }
         public DbSet<PatientMedicalInfo> PatientMedicalInfos { get; set; }
-        public DbSet<PatientReferral> PatientReferrals { get; set; }
+        public DbSet<PatientReferral> Referrals { get; set; }
         public DbSet<PatientDocument> PatientDocuments { get; set; }
-        public DbSet<CMS107Eligibility> CMS107Eligibilities { get; private set; }
-        public DbSet<Insurance> Insurancs { get; set; }
+        public DbSet<CMS107Eligibility> CMS107Eligibilities { get; set; }
+        public DbSet<Insurance> Insurances { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

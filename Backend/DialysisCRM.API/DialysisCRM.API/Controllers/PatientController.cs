@@ -1,5 +1,6 @@
 ﻿using DialysisCRM.API.Interfaces;
 using DialysisCRM.API.Models;
+using DialysisCRM.API.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DialysisCRM.API.Controllers
@@ -15,7 +16,7 @@ namespace DialysisCRM.API.Controllers
             _patientService = patientService;
         }
 
-        // GET: api/patient
+        // GET all patients
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Patient>>> GetPatients()
         {
@@ -23,7 +24,7 @@ namespace DialysisCRM.API.Controllers
             return Ok(patients);
         }
 
-        // GET: api/patient/{id}
+        // GET by ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Patient>> GetPatient(int id)
         {
@@ -34,18 +35,45 @@ namespace DialysisCRM.API.Controllers
             return Ok(patient);
         }
 
-        // POST: api/patient
+        // POST: Create new patient using DTO
         [HttpPost]
-        public async Task<ActionResult<Patient>> CreatePatient(Patient patient)
+        public async Task<ActionResult<Patient>> CreatePatient([FromBody] PatientDTO patientDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var patient = new Patient
+            {
+                FullName = patientDto.FullName,
+                DateOfBirth = patientDto.DateOfBirth,
+                Gender = patientDto.Gender,
+                Phone = patientDto.Phone,
+                Email = patientDto.Email,
+                Address = patientDto.Address
+            };
+
             var created = await _patientService.CreateAsync(patient);
             return CreatedAtAction(nameof(GetPatient), new { id = created.Id }, created);
         }
 
-        // PUT: api/patient/{id}
+        // PUT: Update
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdatePatient(int id, Patient patient)
+        public async Task<IActionResult> UpdatePatient(int id, [FromBody] PatientDTO patientDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var patient = new Patient
+            {
+                Id = id,
+                FullName = patientDto.FullName,
+                DateOfBirth = patientDto.DateOfBirth,
+                Gender = patientDto.Gender,
+                Phone = patientDto.Phone,
+                Email = patientDto.Email,
+                Address = patientDto.Address
+            };
+
             var updated = await _patientService.UpdateAsync(id, patient);
             if (!updated)
                 return NotFound();
@@ -53,7 +81,7 @@ namespace DialysisCRM.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/patient/{id}
+        // DELETE
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePatient(int id)
         {
