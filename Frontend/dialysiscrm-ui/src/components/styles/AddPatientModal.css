@@ -1,0 +1,15 @@
+.nav-tabs .nav-link.active {
+  background-color: #74b9b1 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-teal {
+  background-color: #74b9b1 !important;
+  border: none;
+  color: white;
+}
+
+.btn-teal:hover {
+  background-color: #5da8a0 !important;
+}

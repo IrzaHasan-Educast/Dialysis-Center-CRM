@@ -1,12 +1,15 @@
-import React from "react";
-import PatientTable from "../components/patients/PatientTable";
+import React from 'react';
+import AppNavbar from '../components/Navbar';
+import Footer from '../components/Footer';
+import PatientTable from '../components/patients/PatientTable';
 
 const Patients = () => {
   return (
-    <div>
-      <h2 className="text-3xl font-semibold text-gray-800 mb-4">Patients</h2>
+    <>
+      <AppNavbar />
       <PatientTable />
-    </div>
+      <Footer />
+    </>
   );
 };
 

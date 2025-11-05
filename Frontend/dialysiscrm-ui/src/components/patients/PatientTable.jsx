@@ -1,69 +1,68 @@
-import { useEffect, useState } from "react";
-import { getAllPatients } from "../../services/api";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/PatientTable.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
-function PatientTable() {
+const PatientTable = () => {
   const [patients, setPatients] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPatients = async () => {
-      try {
-        const data = await getAllPatients();
-        setPatients(data);
-      } catch (error) {
-        console.error("Error fetching patients:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchPatients();
+    axios
+      .get("http://localhost:5277/api/Patient")
+      .then((response) => setPatients(response.data))
+      .catch((error) => console.error("Error fetching patients:", error));
   }, []);
 
-  if (loading) {
-    return <p className="text-gray-500">Loading patients...</p>;
-  }
-
   return (
-    <div className="p-6">
-      <h2 className="text-2xl font-semibold mb-4">Patient List</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-300 divide-y divide-gray-200">
-          <thead className="bg-gray-100">
+    <div className="container mt-5 p-5 patient-page">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2 className="fw-bold title-text">Patient Management</h2>
+        <div>
+          <button className="btn btn-teal me-2">+ Add New Patient</button>
+          <button className="btn btn-outline-secondary">Export Data</button>
+        </div>
+      </div>
+
+      <p className="text-muted mb-4">
+        Comprehensive patient profiles, intake, and compliance tracking
+      </p>
+
+      <div className="table-responsive p-3 shadow">
+        <table className="table custom-table">
+          <thead>
             <tr>
-              <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">ID</th>
-              <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Full Name</th>
-              <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Phone</th>
-              <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Email</th>
-              <th className="px-4 py-2 text-left text-sm font-medium text-gray-700">Action</th>
+              <th>#</th>
+              <th>Full Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>Gender</th>
+              <th>Action</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
-            {patients.length === 0 ? (
-              <tr>
-                <td colSpan="5" className="px-4 py-2 text-center text-gray-500">
-                  No patients found
+          <tbody>
+            {patients.map((patient, index) => (
+              <tr key={patient.id}>
+                <td>{index + 1}</td>
+                <td>{patient.fullName}</td>
+                <td>{patient.email}</td>
+                <td>{patient.phone}</td>
+                <td>{patient.address || "-"}</td>
+                <td>{patient.gender || "-"}</td>
+                <td>
+                  <button className="btn btn-link text-secondary">
+                    <FontAwesomeIcon icon={faEye} />
+                  </button>
                 </td>
               </tr>
-            ) : (
-              patients.map((p) => (
-                <tr key={p.id}>
-                  <td className="px-4 py-2">{p.id}</td>
-                  <td className="px-4 py-2">{p.fullName}</td>
-                  <td className="px-4 py-2">{p.phone}</td>
-                  <td className="px-4 py-2">{p.email}</td>
-                  <td className="px-4 py-2">
-                    <button className="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-                      👁️ View
-                    </button>
-                  </td>
-                </tr>
-              ))
-            )}
+            ))}
           </tbody>
         </table>
       </div>
     </div>
   );
-}
+};
 
 export default PatientTable;

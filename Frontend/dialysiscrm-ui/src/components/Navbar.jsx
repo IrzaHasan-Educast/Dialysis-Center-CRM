@@ -1,86 +1,75 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStethoscope } from "@fortawesome/free-solid-svg-icons";
+import "../components/styles/Navbar.css";
 
-function Navbar() {
+
+const HeaderNavbar = () => {
   return (
-    <nav className="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-around items-center h-16">
-          {/* Left: Logo + Nav Links */}
-          <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-blue-500">
-                DialysisCenter Pro
-              </h1>
-            </div>
-            <div className="hidden md:block ml-10">
-              <div className="flex items-baseline space-x-8">
-                <a
-                  href="/"
-                  className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-500"
-                >
-                  Dashboard
-                </a>
-                <a
-                  href="/patients"
-                  className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-500"
-                >
-                  Patients
-                </a>
-                <a
-                  href="/scheduling"
-                  className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-500"
-                >
-                  Scheduling
-                </a>
-                <a
-                  href="/analytics"
-                  className="px-3 py-2 text-sm font-medium text-gray-700 hover:text-teal-500"
-                >
-                  Analytics
-                </a>
-              </div>
-            </div>
-          </div>
+    <Navbar expand="lg" fixed="top" bg="white" className=" myNav border-bottom shadow-sm py-2">
+      <Container>
+        {/* Left Section — Logo */}
+        <Navbar.Brand href="/" className="fw-bold logo-text d-flex align-items-center">
+          <FontAwesomeIcon icon={faStethoscope} className="me-2 text-info" />
+          Dialysis<span style={{ color: "#74b9b1" }}>Center</span> Pro
+        </Navbar.Brand>
 
-          {/* Right: Search + User */}
-          <div className="flex items-center space-x-4">
-            {/* Search */}
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search patients..."
-                className="w-64 px-4 py-2 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent"
+        {/* Navbar Toggle (for small screens) */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
+        {/* Center Section — Navigation Links */}
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mx-auto gap-3">
+            <Nav.Link href="/" className="nav-link-custom active">
+              Dashboard
+            </Nav.Link>
+            <Nav.Link href="/patients" className="nav-link-custom">
+              Patients
+            </Nav.Link>
+            <Nav.Link href="/scheduling" className="nav-link-custom">
+              Scheduling
+            </Nav.Link>
+            <Nav.Link href="/analytics" className="nav-link-custom">
+              Analytics
+            </Nav.Link>
+          </Nav>
+
+          {/* Right Section — Search and Profile */}
+          <div className="d-flex align-items-center gap-3">
+            {/* Search bar */}
+            <Form className="d-flex">
+              <FormControl
+                type="search"
+                placeholder="Search"
+                className="me-2 rounded-pill px-3"
+                aria-label="Search"
               />
-              <svg
-                className="absolute right-3 top-2.5 w-4 h-4 text-gray-400"
-                fill="currentColor"
-                viewBox="0 0 20 20"
+            </Form>
+
+            {/* Profile Section */}
+            <div className="d-flex align-items-center">
+              <div
+                className="profile-icon d-flex align-items-center justify-content-center rounded-circle text-white fw-bold me-2"
+                style={{
+                  width: "40px",
+                  height: "40px",
+                  backgroundColor: "#74b9b1",
+                }}
               >
-                <path
-                  fillRule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clipRule="evenodd"
-                />
-              </svg>
-            </div>
-
-            {/* User Info */}
-            <div className="flex items-center space-x-3">
-              <img
-                src="resources/patient-avatars/patient-3.jpg"
-                alt="User Avatar"
-                className="w-8 h-8 rounded-full object-cover"
-              />
-              <div className="text-sm">
-                <div className="font-medium text-gray-800">Dr. Umair Abid</div>
-                <div className="text-gray-500 text-xs">Medical Director</div>
+                IH
+              </div>
+              <div className="profile-details lh-sm">
+                <div className="fw-semibold">Irza Hasan</div>
+                <div className="text-secondary small">Software Engineer</div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
-}
+};
 
-export default Navbar;
+export default HeaderNavbar;
